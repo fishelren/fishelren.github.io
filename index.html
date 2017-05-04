@@ -260,6 +260,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/05/04/offsetLeft和offsetTop/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="飞翔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飞翔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/04/offsetLeft和offsetTop/" itemprop="url">
+                  offsetLeft和offsetTop
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T15:13:00+08:00">
+                2017-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/05/04/offsetLeft和offsetTop/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/04/offsetLeft和offsetTop/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>offsetLeft/offsetTop属性是元素相对于其offsetParent属性指定的包含元素而言的，offsetParent不一定等于父节点（parentNode），例如：</p>
+<pre><code>/*CSS*/
+.box1{
+    display: inline-block;
+    width:300px;
+    height: 300px;
+    background-color: #FEA4A4;
+}
+.box2{
+    display: inline-block;
+    width:200px;
+    height: 200px;
+    background-color: #9789FF;
+}
+
+&lt;!-- HTML --&gt;
+&lt;div class=&quot;box1&quot; id=&quot;box1&quot;&gt;
+    &lt;div class=&quot;box2&quot; id=&quot;box2&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre><p>此时，box1和box2的offsetParent都是body；但如果给box1指定position属性为”relative”，”absolute”或”fixed”，则box2的offsetParent为box1，这说明offsetParent是离元素最近的position属性指定为”relative”，”absolute”或”fixed”的包含元素或初始包含块（一般是body）。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/04/offsetLeft和offsetTop/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/04/28/JavaScript中的变量提升/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -986,7 +1142,7 @@ let x=1;
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
