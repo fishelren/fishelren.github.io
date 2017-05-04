@@ -105,7 +105,7 @@
     width:300px;
     height: 300px;
     background-color: #FEA4A4;">
-<meta property="og:updated_time" content="2017-05-04T07:12:26.140Z">
+<meta property="og:updated_time" content="2017-05-04T07:22:40.967Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="offsetLeft和offsetTop">
 <meta name="twitter:description" content="offsetLeft/offsetTop属性是元素相对于其offsetParent属性指定的包含元素而言的，offsetParent不一定等于父节点（parentNode），例如：
@@ -385,7 +385,7 @@
 <p>但是当元素的position设置为”fixed”时，它自身的offsetParent属性会变为null，offsetLeft/offsetTop相对于初始包含块（一般是body）进行计算。</p>
 <p>还有一种情况要注意。就是table中的td的offsetParent是table，而不是tr，因为tr被认为是没有大小的元素，td相对于离它最近的具有大小的元素计算offsetLeft/offsetTop（因为table tr td的关系是HTML内部定义的，这里不用考虑position的值）。</p>
 <p><em>offsetLeft/offsetTop和DOM提供的style.left/style.top的区别是什么呢？</em></p>
-<p>DOM的style属性表示的是包含在HTML元素中style=”XXX：YYY”中的内嵌样式，如果样式是由link或<style\>标签指定的，style.XXX是取不到样式的（取到的是空字符串）。style.left/style.top对应得是CSS中的left和top，是相对于最近的已定位祖先元素或初始包含块而言的；用style.left/style.top来设置样式值，会覆盖掉外部CSS文件中定义的样式值。</style\></p>
+<p>DOM的style属性表示的是包含在HTML元素中style=”XXX：YYY”中的内嵌样式，如果样式是由link或style标签指定的，style.XXX是取不到样式的（取到的是空字符串）。style.left/style.top对应得是CSS中的left和top，是相对于最近的已定位祖先元素或初始包含块而言的；用style.left/style.top来设置样式值，会覆盖掉外部CSS文件中定义的样式值。</p>
 
       
     </div>
