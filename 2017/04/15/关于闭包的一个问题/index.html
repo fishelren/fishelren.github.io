@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
+<meta name="description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS垂直居中">
-<meta property="og:url" content="http://fishelren.me/2017/03/27/CSS垂直居中/index.html">
+<meta property="og:title" content="关于闭包的一个问题">
+<meta property="og:url" content="http://fishelren.me/2017/04/15/关于闭包的一个问题/index.html">
 <meta property="og:site_name" content="飞翔的博客">
-<meta property="og:description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
-<meta property="og:updated_time" content="2017-07-01T13:13:40.897Z">
+<meta property="og:description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
+<meta property="og:updated_time" content="2017-07-01T13:18:18.242Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS垂直居中">
-<meta name="twitter:description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
+<meta name="twitter:title" content="关于闭包的一个问题">
+<meta name="twitter:description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://fishelren.me/2017/03/27/CSS垂直居中/"/>
+  <link rel="canonical" href="http://fishelren.me/2017/04/15/关于闭包的一个问题/"/>
 
 
 
 
 
-  <title> CSS垂直居中 | 飞翔的博客 </title>
+  <title> 关于闭包的一个问题 | 飞翔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/03/27/CSS垂直居中/">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/04/15/关于闭包的一个问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="飞翔">
@@ -280,7 +280,7 @@
             
             
               
-                CSS垂直居中
+                关于闭包的一个问题
               
             
           </h1>
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T13:39:23+08:00">
-                2017-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T21:46:00+08:00">
+                2017-04-15
               </time>
             
 
@@ -315,8 +315,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/27/CSS垂直居中/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/27/CSS垂直居中/" itemprop="commentsCount"></span>
+                <a href="/2017/04/15/关于闭包的一个问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/15/关于闭包的一个问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -343,133 +343,52 @@
       
 
       
-        <h3 id="行级元素（inline元素和inline-元素）的垂直居中"><a href="#行级元素（inline元素和inline-元素）的垂直居中" class="headerlink" title="行级元素（inline元素和inline-*元素）的垂直居中"></a>行级元素（inline元素和inline-*元素）的垂直居中</h3><h4 id="单行的垂直居中"><a href="#单行的垂直居中" class="headerlink" title="单行的垂直居中"></a>单行的垂直居中</h4><p><em>方法一</em>：令包含块的上下内边距相等，即可使单行行级元素垂直居中。</p>
+        <p>最近阅读了梁少峰老师的《<a href="https://github.com/youngwind/blog/issues/84" target="_blank" rel="external">vue早期源码学习系列之一：如何监听一个对象的变化</a>》，有一处不明白的地方</p>
 <a id="more"></a>
-<p>CSS代码</p>
-<pre><code>#container{    
-    background:#f06d06;
-    padding:50px 10px;
+<pre><code>function Observer(data){ //创建观察者对象
+    this.data=data;
+    this.bind(data);
 }
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;This is a single line text.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p><em>方法二</em>：令包含块的height和line-height相等，即可使包含在其中的单行行级元素垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    background:#f06d06;
-    padding-left:10px;
-    height:100px;
-    line-height:100px;    
-    white-space:nowrap;
+
+Observer.prototype.bind=function(data){ //对对象中属性值为非对象的属性进行绑定，属性值为对象则递归绑定
+    var attrNames=Object.keys(data);//返回data的实例属性名
+    for(attrName in attrNames){
+        var key=attrNames[attrName];//属性名
+        var val=data[key];//属性值
+        if(typeof val===&quot;object&quot;){ //如果属性值仍然是对象，则要递归绑定内层的属性
+            new Observer(val);//创建观察者对象，一方面是保存数据，一方面是进行绑定
+        }
+        this.monitor(key,val);
+    }
 }
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;This is a single line text.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><h4 id="多行的垂直居中"><a href="#多行的垂直居中" class="headerlink" title="多行的垂直居中"></a>多行的垂直居中</h4><p><em>方法一</em>：将包含块的display属性设置为table-cell，即按表格单元显示，然后设置vertical-align:middle;使包含在其中的多行行级元素垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    width:200px;
-    height:300px;
-    background:#f06d06;
-    padding:10px;    
-    vertical-align:middle;
-    display:table-cell; /*作为表格单元显示*/
+
+Observer.prototype.monitor=function(key,value){ //通过对属性设置get和set函数对属性进行监听
+    Object.defineProperty(this.data,key,{
+        get:function(){
+            console.log(&quot;访问属性：&quot;+key);
+            return value;
+        },
+        set:function(newValue){
+            console.log(&quot;设置属性&quot;+key+&quot;为新值：&quot;+newValue);
+            if(value==newValue){
+                return;
+            }
+            /*没有设置也无法设置writable,writable默认为false，不可以修改key对应的属性值,
+                所以不能写成this.data.key=newValue
+            */
+            value=newValue;
+        }
+    });
 }
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;I&apos;m vertically centered multiple lines of text in a real table cell.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p><em>方法二</em>：利用弹性布局进行垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    width:200px;
-    height:300px;
-    background:#f06d06;
-    padding:10px;    
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;I&apos;m vertically centered multiple lines of text in a real table cell.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><hr>
-<h3 id="块级元素的垂直居中"><a href="#块级元素的垂直居中" class="headerlink" title="块级元素的垂直居中"></a>块级元素的垂直居中</h3><h4 id="知道垂直居中元素的高度"><a href="#知道垂直居中元素的高度" class="headerlink" title="知道垂直居中元素的高度"></a>知道垂直居中元素的高度</h4><p>利用垂直居中元素的负外边距进行垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;
-    position:relative;    
-}
-.box{
-    width:200px;
-    height:200px;
-    background:#333;
-    color:#fff;    
-    padding:10px;
-    position:absolute;
-    top:50%;
-    margin-top:-110px; /*外边距为负的垂直居中元素高度的一半，这里是内容区域和内边距的高度之和*/
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><h4 id="不知道垂直居中元素的高度"><a href="#不知道垂直居中元素的高度" class="headerlink" title="不知道垂直居中元素的高度"></a>不知道垂直居中元素的高度</h4><p>利用CSS的transform属性将要垂直居中的元素进行平移</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;
-    position:relative;    
-}
-.box{
-    width:200px;
-    background:#333;
-    color:#fff;    
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%); /*向上移一半的高度*/
-    padding:10px;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><h4 id="利用弹性布局垂直居中"><a href="#利用弹性布局垂直居中" class="headerlink" title="利用弹性布局垂直居中"></a>利用弹性布局垂直居中</h4><p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;    
-    display:flex; /*弹性布局*/
-    flex-direction:column; /*主轴方向为垂直方向，项目在垂直方向上排列*/
-    justify-content:center; /*项目在主轴方向上居中*/
-}
-.box{
-    width:200px;
-    background:#333;
-    color:#fff;    
-    padding:10px;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li>Chris Coyier 《<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">Centering in CSS:A Complete Guide</a>》</li>
-<li>阮一峰 《<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">Flex布局教程：语法篇</a>》</li>
-</ul>
+</code></pre><p>set函数中value只是个形参，它是怎么影响属性值的变化的呢？</p>
+<p>经梁少峰老师指点并阅读了阮一峰老师的《<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure）</a>》，总算把这个问题弄明白了！</p>
+<p>闭包的作用主要有两点：（1）可以访问函数内部的变量；（2）将函数内部的变量始终保存在内存中。这个问题的关键在于理解第二点，setter和getter引用monitor中的局部变量value，形成闭包，将局部变量value保存在内存中，且每次调用monitor都会产生不同的依赖，保存不同的value到内存中，同一组getter和setter对内存中对应的value进行操作。因此，以上代码中对内存中的value赋新值后，getter返回的也是这个新值，的却是起到了改变属性值的效果。</p>
+<hr>
+<p>额外的一些笔记：</p>
+<p>闭包是可以读取其它函数中变量的函数，以内部函数的形式呈现</p>
+<p>JavaScript的链式作用域：子对象会一级一级向上搜索父对象中的变量</p>
+<p>闭包是将函数内部和函数外部连接起来的一座桥梁，函数外部通过闭包访问函数内部中的变量</p>
+<p>内部函数（例如闭包）无法直接访问外部函数中隐式存在的this和arguments，因此会沿着作用域链向上搜索，直到找到全局变量对象中的this</p>
 
       
     </div>
@@ -499,7 +418,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           
         </div>
       
@@ -512,14 +431,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/27/CSS垂直居中/" rel="next" title="CSS垂直居中">
+                <i class="fa fa-chevron-left"></i> CSS垂直居中
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/15/关于闭包的一个问题/" rel="prev" title="关于闭包的一个问题">
-                关于闭包的一个问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/17/浏览器用户代理检测的一些变化/" rel="prev" title="浏览器用户代理检测的一些变化">
+                浏览器用户代理检测的一些变化 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -569,17 +492,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -661,22 +575,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#行级元素（inline元素和inline-元素）的垂直居中"><span class="nav-number">1.</span> <span class="nav-text">行级元素（inline元素和inline-*元素）的垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单行的垂直居中"><span class="nav-number">1.1.</span> <span class="nav-text">单行的垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行的垂直居中"><span class="nav-number">1.2.</span> <span class="nav-text">多行的垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素的垂直居中"><span class="nav-number">2.</span> <span class="nav-text">块级元素的垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知道垂直居中元素的高度"><span class="nav-number">2.1.</span> <span class="nav-text">知道垂直居中元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不知道垂直居中元素的高度"><span class="nav-number">2.2.</span> <span class="nav-text">不知道垂直居中元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用弹性布局垂直居中"><span class="nav-number">2.3.</span> <span class="nav-text">利用弹性布局垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -812,7 +710,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 88741, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/03/27/CSS垂直居中/"});
+		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/04/15/关于闭包的一个问题/"});
 		
 
 		(function() {

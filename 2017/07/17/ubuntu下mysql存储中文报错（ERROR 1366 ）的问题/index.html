@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="database," />
 
 
 
@@ -87,16 +87,35 @@
 
 
 
-<meta name="description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
+<meta name="description" content="在写django web的时候往mysql数据库中插入中文，报ERROR 1366的错误。
+
+原以为是django代码哪里写错了，后来到mysql中手动插入中文，也报同样的错误，说明问题出在mysql。
+在mysql下查看配置参数
+show variables like &amp;apos;%character%&amp;apos;;
+结果如下图：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS垂直居中">
-<meta property="og:url" content="http://fishelren.me/2017/03/27/CSS垂直居中/index.html">
+<meta property="og:title" content="ubuntu下mysql存储中文报错（Error 1366）的解决方法">
+<meta property="og:url" content="http://fishelren.me/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/index.html">
 <meta property="og:site_name" content="飞翔的博客">
-<meta property="og:description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
-<meta property="og:updated_time" content="2017-07-01T13:13:40.897Z">
+<meta property="og:description" content="在写django web的时候往mysql数据库中插入中文，报ERROR 1366的错误。
+
+原以为是django代码哪里写错了，后来到mysql中手动插入中文，也报同样的错误，说明问题出在mysql。
+在mysql下查看配置参数
+show variables like &amp;apos;%character%&amp;apos;;
+结果如下图：">
+<meta property="og:image" content="http://ot8ap8658.bkt.clouddn.com/err1366-1.png">
+<meta property="og:image" content="http://ot8ap8658.bkt.clouddn.com/err1366-2.png">
+<meta property="og:image" content="http://ot8ap8658.bkt.clouddn.com/err1366-3.png">
+<meta property="og:updated_time" content="2017-07-17T10:06:04.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS垂直居中">
-<meta name="twitter:description" content="行级元素（inline元素和inline-*元素）的垂直居中单行的垂直居中方法一：令包含块的上下内边距相等，即可使单行行级元素垂直居中。">
+<meta name="twitter:title" content="ubuntu下mysql存储中文报错（Error 1366）的解决方法">
+<meta name="twitter:description" content="在写django web的时候往mysql数据库中插入中文，报ERROR 1366的错误。
+
+原以为是django代码哪里写错了，后来到mysql中手动插入中文，也报同样的错误，说明问题出在mysql。
+在mysql下查看配置参数
+show variables like &amp;apos;%character%&amp;apos;;
+结果如下图：">
+<meta name="twitter:image" content="http://ot8ap8658.bkt.clouddn.com/err1366-1.png">
 
 
 
@@ -124,13 +143,13 @@
 
 
 
-  <link rel="canonical" href="http://fishelren.me/2017/03/27/CSS垂直居中/"/>
+  <link rel="canonical" href="http://fishelren.me/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/"/>
 
 
 
 
 
-  <title> CSS垂直居中 | 飞翔的博客 </title>
+  <title> ubuntu下mysql存储中文报错（Error 1366）的解决方法 | 飞翔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +278,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/03/27/CSS垂直居中/">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="飞翔">
@@ -280,7 +299,7 @@
             
             
               
-                CSS垂直居中
+                ubuntu下mysql存储中文报错（Error 1366）的解决方法
               
             
           </h1>
@@ -295,8 +314,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-27T13:39:23+08:00">
-                2017-03-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-17T18:04:12+08:00">
+                2017-07-17
               </time>
             
 
@@ -315,8 +334,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/27/CSS垂直居中/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/03/27/CSS垂直居中/" itemprop="commentsCount"></span>
+                <a href="/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -343,133 +362,46 @@
       
 
       
-        <h3 id="行级元素（inline元素和inline-元素）的垂直居中"><a href="#行级元素（inline元素和inline-元素）的垂直居中" class="headerlink" title="行级元素（inline元素和inline-*元素）的垂直居中"></a>行级元素（inline元素和inline-*元素）的垂直居中</h3><h4 id="单行的垂直居中"><a href="#单行的垂直居中" class="headerlink" title="单行的垂直居中"></a>单行的垂直居中</h4><p><em>方法一</em>：令包含块的上下内边距相等，即可使单行行级元素垂直居中。</p>
+        <p>在写django web的时候往mysql数据库中插入中文，报ERROR 1366的错误。</p>
+<p><img src="http://ot8ap8658.bkt.clouddn.com/err1366-1.png" alt=""></p>
+<p>原以为是django代码哪里写错了，后来到mysql中手动插入中文，也报同样的错误，说明问题出在mysql。</p>
+<p>在mysql下查看配置参数</p>
+<pre><code>show variables like &apos;%character%&apos;;
+</code></pre><p>结果如下图：</p>
 <a id="more"></a>
-<p>CSS代码</p>
-<pre><code>#container{    
-    background:#f06d06;
-    padding:50px 10px;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;This is a single line text.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p><em>方法二</em>：令包含块的height和line-height相等，即可使包含在其中的单行行级元素垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    background:#f06d06;
-    padding-left:10px;
-    height:100px;
-    line-height:100px;    
-    white-space:nowrap;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;This is a single line text.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><h4 id="多行的垂直居中"><a href="#多行的垂直居中" class="headerlink" title="多行的垂直居中"></a>多行的垂直居中</h4><p><em>方法一</em>：将包含块的display属性设置为table-cell，即按表格单元显示，然后设置vertical-align:middle;使包含在其中的多行行级元素垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    width:200px;
-    height:300px;
-    background:#f06d06;
-    padding:10px;    
-    vertical-align:middle;
-    display:table-cell; /*作为表格单元显示*/
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;I&apos;m vertically centered multiple lines of text in a real table cell.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><p><em>方法二</em>：利用弹性布局进行垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    width:200px;
-    height:300px;
-    background:#f06d06;
-    padding:10px;    
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;span&gt;I&apos;m vertically centered multiple lines of text in a real table cell.&lt;/span&gt;
-&lt;/div&gt;
-</code></pre><hr>
-<h3 id="块级元素的垂直居中"><a href="#块级元素的垂直居中" class="headerlink" title="块级元素的垂直居中"></a>块级元素的垂直居中</h3><h4 id="知道垂直居中元素的高度"><a href="#知道垂直居中元素的高度" class="headerlink" title="知道垂直居中元素的高度"></a>知道垂直居中元素的高度</h4><p>利用垂直居中元素的负外边距进行垂直居中</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;
-    position:relative;    
-}
-.box{
-    width:200px;
-    height:200px;
-    background:#333;
-    color:#fff;    
-    padding:10px;
-    position:absolute;
-    top:50%;
-    margin-top:-110px; /*外边距为负的垂直居中元素高度的一半，这里是内容区域和内边距的高度之和*/
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><h4 id="不知道垂直居中元素的高度"><a href="#不知道垂直居中元素的高度" class="headerlink" title="不知道垂直居中元素的高度"></a>不知道垂直居中元素的高度</h4><p>利用CSS的transform属性将要垂直居中的元素进行平移</p>
-<p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;
-    position:relative;    
-}
-.box{
-    width:200px;
-    background:#333;
-    color:#fff;    
-    position:absolute;
-    top:50%;
-    transform:translateY(-50%); /*向上移一半的高度*/
-    padding:10px;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><h4 id="利用弹性布局垂直居中"><a href="#利用弹性布局垂直居中" class="headerlink" title="利用弹性布局垂直居中"></a>利用弹性布局垂直居中</h4><p>CSS代码</p>
-<pre><code>#container{
-    height:300px;
-    background:#f06d06;
-    padding-left:20px;    
-    display:flex; /*弹性布局*/
-    flex-direction:column; /*主轴方向为垂直方向，项目在垂直方向上排列*/
-    justify-content:center; /*项目在主轴方向上居中*/
-}
-.box{
-    width:200px;
-    background:#333;
-    color:#fff;    
-    padding:10px;
-}
-</code></pre><p>HTML代码</p>
-<pre><code>&lt;div id=&quot;container&quot;&gt;
-    &lt;div class=&quot;box&quot;&gt;
-        &lt;span&gt;I&apos;m a block-level element with an unknown height, centered vertically within my parent.&lt;/span&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre><hr>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><ul>
-<li>Chris Coyier 《<a href="https://css-tricks.com/centering-css-complete-guide/" target="_blank" rel="external">Centering in CSS:A Complete Guide</a>》</li>
-<li>阮一峰 《<a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html?utm_source=tuicool" target="_blank" rel="external">Flex布局教程：语法篇</a>》</li>
-</ul>
+<p><img src="http://ot8ap8658.bkt.clouddn.com/err1366-2.png" alt="">    </p>
+<p>可以看到是字符编码的问题</p>
+<p>我的系统是unbuntu16.04，解决方案如下：</p>
+<p>1）修改 /etc/mysql/mysql.conf.d/mysqld.cnf 配置文件</p>
+<pre><code>sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+</code></pre><p>在[mysqld]下加上</p>
+<pre><code>character_set_server=utf8
+</code></pre><p>在[mysql]下加上</p>
+<pre><code>default-character-set=utf8
+</code></pre><p>在[mysql.server]下加上</p>
+<pre><code>default-character-set=utf8
+</code></pre><p>在[mysqld_safe]下加上</p>
+<pre><code>default-character-set=utf8
+</code></pre><p>在[client]下加上</p>
+<pre><code>default-character-set=utf8
+</code></pre><p>ps：[XXX]不存在就自己打上去</p>
+<p>2）重启mysql</p>
+<pre><code>service mysql restart
+</code></pre><p>ps：重启成功不会有任何提示</p>
+<p>再到mysql下查看一次配置参数</p>
+<pre><code>show variables like &apos;%character%&apos;;
+</code></pre><p>可以看到字符编码变为utf-8了</p>
+<p><img src="http://ot8ap8658.bkt.clouddn.com/err1366-3.png" alt=""></p>
+<p>插入中文试试，= =！，仍让报原来的错误，还能不能愉快地玩耍了~</p>
+<p>在mysql下查看目标数据表的编码</p>
+<pre><code>show create table article_article;
+</code></pre><p>数据表是之前就已经存在的，可以看到目标数据表的编码没有变过来</p>
+<p>3）修改数据表编码</p>
+<pre><code>alter table article_article default character set utf8 collate utf8_general_ci;
+</code></pre><p>这样数据表的编码就改过来了</p>
+<p>4）此外，还要修改所有字段的编码</p>
+<pre><code>alter table article_article convert to character set utf8;
+</code></pre><p>这时，插入中文就没有问题了！</p>
 
       
     </div>
@@ -499,7 +431,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/database/" rel="tag"># database</a>
           
         </div>
       
@@ -512,15 +444,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/04/offsetLeft和offsetTop/" rel="next" title="offsetLeft和offsetTop">
+                <i class="fa fa-chevron-left"></i> offsetLeft和offsetTop
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/15/关于闭包的一个问题/" rel="prev" title="关于闭包的一个问题">
-                关于闭包的一个问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,17 +501,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -661,22 +584,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#行级元素（inline元素和inline-元素）的垂直居中"><span class="nav-number">1.</span> <span class="nav-text">行级元素（inline元素和inline-*元素）的垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#单行的垂直居中"><span class="nav-number">1.1.</span> <span class="nav-text">单行的垂直居中</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#多行的垂直居中"><span class="nav-number">1.2.</span> <span class="nav-text">多行的垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#块级元素的垂直居中"><span class="nav-number">2.</span> <span class="nav-text">块级元素的垂直居中</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#知道垂直居中元素的高度"><span class="nav-number">2.1.</span> <span class="nav-text">知道垂直居中元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#不知道垂直居中元素的高度"><span class="nav-number">2.2.</span> <span class="nav-text">不知道垂直居中元素的高度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用弹性布局垂直居中"><span class="nav-number">2.3.</span> <span class="nav-text">利用弹性布局垂直居中</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -812,7 +719,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 88741, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/03/27/CSS垂直居中/"});
+		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/"});
 		
 
 		(function() {
