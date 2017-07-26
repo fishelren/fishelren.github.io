@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="django," />
 
 
 
@@ -89,22 +89,16 @@
 
 
 
-<meta name="description" content="transform中rotateX，rotateY，rotateZ的正方向：CSS3的坐标系从左到右X轴从负到正，从上到下Y轴从负到正（ps:这与WebGL不同，WebGL中Y轴与其相反），从外到里Z轴从正到负；把各个轴的正方向想象成迎面向你射来的一支箭，顺时针方向对应rotateX，rotateY，rotateZ中的正度数，逆时针方向对应负度数。
-
-不能将包裹多个参与3d变换子元素，并且自身也参">
+<meta name="description" content="ajax和DOM结合更新页面是我们都非常熟悉的，那么，假如前端页面用到了django模板的话，好像就不好直接用DOM来更新由模板产生的页面元素了。这时，我们需要更新的是django的模板，怎么办呢？在经过一番google之后，我得到了想要的答案，感谢那些优秀的博客和社区，感谢拥有灵敏嗅觉的google！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于CSS3 3D transform的一些笔记">
-<meta property="og:url" content="http://fishelren.me/2017/04/19/关于CSS3 3D transform/index.html">
+<meta property="og:title" content="Django结合AJAX更新模板">
+<meta property="og:url" content="http://fishelren.me/2017/07/27/Django结合AJAX更新模板/index.html">
 <meta property="og:site_name" content="飞翔的博客">
-<meta property="og:description" content="transform中rotateX，rotateY，rotateZ的正方向：CSS3的坐标系从左到右X轴从负到正，从上到下Y轴从负到正（ps:这与WebGL不同，WebGL中Y轴与其相反），从外到里Z轴从正到负；把各个轴的正方向想象成迎面向你射来的一支箭，顺时针方向对应rotateX，rotateY，rotateZ中的正度数，逆时针方向对应负度数。
-
-不能将包裹多个参与3d变换子元素，并且自身也参">
-<meta property="og:updated_time" content="2017-07-01T13:20:46.330Z">
+<meta property="og:description" content="ajax和DOM结合更新页面是我们都非常熟悉的，那么，假如前端页面用到了django模板的话，好像就不好直接用DOM来更新由模板产生的页面元素了。这时，我们需要更新的是django的模板，怎么办呢？在经过一番google之后，我得到了想要的答案，感谢那些优秀的博客和社区，感谢拥有灵敏嗅觉的google！">
+<meta property="og:updated_time" content="2017-07-26T08:24:11.380Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于CSS3 3D transform的一些笔记">
-<meta name="twitter:description" content="transform中rotateX，rotateY，rotateZ的正方向：CSS3的坐标系从左到右X轴从负到正，从上到下Y轴从负到正（ps:这与WebGL不同，WebGL中Y轴与其相反），从外到里Z轴从正到负；把各个轴的正方向想象成迎面向你射来的一支箭，顺时针方向对应rotateX，rotateY，rotateZ中的正度数，逆时针方向对应负度数。
-
-不能将包裹多个参与3d变换子元素，并且自身也参">
+<meta name="twitter:title" content="Django结合AJAX更新模板">
+<meta name="twitter:description" content="ajax和DOM结合更新页面是我们都非常熟悉的，那么，假如前端页面用到了django模板的话，好像就不好直接用DOM来更新由模板产生的页面元素了。这时，我们需要更新的是django的模板，怎么办呢？在经过一番google之后，我得到了想要的答案，感谢那些优秀的博客和社区，感谢拥有灵敏嗅觉的google！">
 
 
 
@@ -132,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://fishelren.me/2017/04/19/关于CSS3 3D transform/"/>
+  <link rel="canonical" href="http://fishelren.me/2017/07/27/Django结合AJAX更新模板/"/>
 
 
 
 
 
-  <title> 关于CSS3 3D transform的一些笔记 | 飞翔的博客 </title>
+  <title> Django结合AJAX更新模板 | 飞翔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +261,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/04/19/关于CSS3 3D transform/">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/07/27/Django结合AJAX更新模板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="飞翔">
@@ -288,7 +282,7 @@
             
             
               
-                关于CSS3 3D transform的一些笔记
+                Django结合AJAX更新模板
               
             
           </h1>
@@ -303,8 +297,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-19T21:46:00+08:00">
-                2017-04-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T00:13:32+08:00">
+                2017-07-27
               </time>
             
 
@@ -323,8 +317,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/19/关于CSS3 3D transform/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/19/关于CSS3 3D transform/" itemprop="commentsCount"></span>
+                <a href="/2017/07/27/Django结合AJAX更新模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/27/Django结合AJAX更新模板/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -351,36 +345,108 @@
       
 
       
-        <p>transform中rotateX，rotateY，rotateZ的正方向：CSS3的坐标系从左到右X轴从负到正，从上到下Y轴从负到正（ps:这与WebGL不同，WebGL中Y轴与其相反），从外到里Z轴从正到负；把各个轴的正方向想象成迎面向你射来的一支箭，顺时针方向对应rotateX，rotateY，rotateZ中的正度数，逆时针方向对应负度数。</p>
-<hr>
-<p>不能将包裹多个参与3d变换子元素，并且自身也参与3d变换的包裹元素作为透视对象（镜头观察的整个范围/设置perspective的对象），这样在perspective一定的情况下可能会造成镜头的忽远忽近，产生预料之外的效果。所以，要么就将舞台元素（包裹3d变换子元素，但自身不参与3d变换的元素）设置为透视对象，要么就将单个的参与3d变换的元素设为透视对象。两种方式设置perspective的方法不同。</p>
+        <p>ajax和DOM结合更新页面是我们都非常熟悉的，那么，假如前端页面用到了django模板的话，好像就不好直接用DOM来更新由模板产生的页面元素了。这时，我们需要更新的是django的模板，怎么办呢？在经过一番google之后，我得到了想要的答案，感谢那些优秀的博客和社区，感谢拥有灵敏嗅觉的google！</p>
 <a id="more"></a>
-<hr>
-<p>把自己的眼睛想象成照相机的镜头，perspective就表示镜头距元素平面z=0的距离 ，没有perspective无法产生3D效果（要产生3D效果必须设置perspective）；perspective-origin可以想象成镜头在元素平面上的垂足的位置，默认在透视元素的中心，就好像你站在透视元素的正前方看着它一样。</p>
-<hr>
-<pre><code>transform-style: preserve-3d; /* Firefox */
--webkit-transform-style: preserve-3d; /* Chrome、Safari 和 Opera */
-</code></pre><p>设置内嵌的元素（子元素）在 3D 空间如何呈现。有两个值：</p>
+<p>本文主要参考了：</p>
 <ul>
-<li>flat：所有子元素在 2D 平面呈现。（默认值）</li>
-<li>preserve-3d：保留3D空间。</li>
+<li><p><a href="https://simpleisbetterthancomplex.com/tutorial/2016/08/29/how-to-work-with-ajax-request-with-django.html" target="_blank" rel="external">How to Work With AJAX Request With Django</a></p>
+</li>
+<li><p><a href="https://stackoverflow.com/questions/18976302/returning-rendered-html-via-ajax" target="_blank" rel="external">来自Stackoverflow的精彩回答</a></p>
+</li>
 </ul>
-<hr>
-<pre><code>backface-visibility:visible; /*Internet Explorer 10+ 和 Firefox*/
--webkit-backface-visibility:visible;    /*Opera 15+ / Chrome 和 Safari */
--moz-backface-visibility:visible;     /* Firefox */
--ms-backface-visibility:visible;     /* Internet Explorer */
-</code></pre><p>backface-visibility决定旋转元素背面是否可见</p>
-<ul>
-<li>visible    背面是可见的。（默认值）</li>
-<li>hidden     背面是不可见的。</li>
-</ul>
-<hr>
-<p>在博主高版本的IE11上都不支持transform 3d变换，IE，你可以！</p>
-<hr>
-<p><a href="http://fishelren.me/2017-IFE/3DCarousel/3DCarousel.html">一个旋转木马效果的图片轮播demo</a></p>
-<hr>
-<p>以上是博主写代码时的一些总结，很是琐碎，要是不了解很容易看晕，要系统的学习请参考<a href="http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/" target="_blank" rel="external">《好吧，CSS3 3D transform变换，不过如此！》</a>、<a href="http://www.alloyteam.com/2012/10/the-css3-transform-perspective-property/" target="_blank" rel="external">《CSS3 Transform的perspective属性》</a>，兼容性请参考mozilla文档和w3school！</p>
+<p>现通过一个Student的例子总结如下:</p>
+<p>学生拥有用户名（username）和年龄（age）两个字段，学生的模型（model）代码如下</p>
+<pre><code>from django.db import models
+
+# Create your models here.
+
+class Student(models.Model):
+    username=models.CharField(max_length=30)
+    age=models.IntegerField()
+</code></pre><p>前端页面由主页（index.html）和两个模板文件studentForm.html和studentList.html组成。studentForm.html负责产生用于填写学生信息的表单，studentList.html是显示当前所有学生信息的列表</p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><pre><code>{% include "demo/studentForm.html" %}
+&lt;div id=&quot;student-list-wrapper&quot;&gt;
+{% include "demo/studentList.html" %}
+&lt;/div&gt;
+</code></pre><h4 id="studentForm-html"><a href="#studentForm-html" class="headerlink" title="studentForm.html"></a>studentForm.html</h4><pre><code>&lt;form&gt;
+    {% csrf_token %}
+    username:{{studentForm.username}}
+    &amp;nbsp;
+    age:{{studentForm.age}}
+    &amp;nbsp;
+    &lt;button type=&quot;button&quot; id=&quot;id_addBtn&quot;&gt;Add&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><h4 id="studentList-html"><a href="#studentList-html" class="headerlink" title="studentList.html"></a>studentList.html</h4><pre><code>&lt;ol id=&quot;student-list&quot;&gt;
+    {% for student in studentList %}
+			<li>{{ student.username }},{{student.age}}</li>
+		{% endfor %}
+&lt;/ol&gt;
+</code></pre><p>现在我在表单中添加学生信息，并且在添加成功后利用ajax无刷新地更新学生列表</p>
+<h4 id="views-py中负责处理前端发来请求的代码如下"><a href="#views-py中负责处理前端发来请求的代码如下" class="headerlink" title="views.py中负责处理前端发来请求的代码如下"></a>views.py中负责处理前端发来请求的代码如下</h4><pre><code>from django.shortcuts import render
+from django.template.loader import render_to_string
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from demo.forms import StudentForm
+from demo.models import Student
+import json
+# Create your views here.
+
+...(省略非主要代码)
+
+@csrf_exempt
+def add(request):
+    stuObj=json.loads(request.body) # 将post方式包含在请求体中的json字符串转换为
+python对象
+    try:
+        Student.objects.create(username=stuObj[&quot;username&quot;],age=stuObj[&quot;age&quot;]) # python中字典只能通过中括号来引用键，而不能用点号
+        studentList=Student.objects.all()
+        studentListRendering=render_to_string(&quot;demo/studentList.html&quot;,{&quot;studentList&quot;:studentList}) # 更新模板
+        return JsonResponse({&quot;status&quot;:&quot;ok&quot;,&quot;studentListRendering&quot;:studentListRendering})
+    except:
+        return JsonResponse({&quot;status&quot;:&quot;error&quot;})
+</code></pre><p>这里的<a href="https://docs.djangoproject.com/en/1.11/topics/templates/#django.template.loader.render_to_string" target="_blank" rel="external">render_to_string</a>函数是关键，它提供刷新模板（studentList.html）的数据，在注入JsonResponse后返回给前端</p>
+<h4 id="JavaScript代码"><a href="#JavaScript代码" class="headerlink" title="JavaScript代码"></a>JavaScript代码</h4><pre><code>(function(){
+
+    let xhr=new XMLHttpRequest();
+
+  //处理响应部分
+    xhr.onreadystatechange=function(){
+        if(xhr.readyState==4){
+            if((xhr.status&gt;=200 &amp;&amp; xhr.status&lt;300)||xhr.status==304){
+
+                responseObj=JSON.parse(xhr.responseText);
+                if(responseObj.status==&quot;ok&quot;){
+                    alert(&quot;add success&quot;);
+                    let studentListWrapper=document.getElementById(&quot;student-list-wrapper&quot;);
+                    studentListWrapper.innerHTML=responseObj.studentListRendering; //更新模板内容
+                }else{
+                    alert(&quot;add failed&quot;);
+                }
+
+            }else{
+                alert(&quot;response failed&quot;);
+            }
+        }
+    }
+
+  //发送数据部分
+    let addBtn=document.getElementById(&quot;id_addBtn&quot;);
+
+    addBtn.addEventListener(&quot;click&quot;,function(){
+
+        xhr.open(&quot;post&quot;,&quot;add/&quot;,true);
+
+        let username=document.getElementById(&quot;id_username&quot;).value;
+        let age=document.getElementById(&quot;id_age&quot;).value;
+
+        let msg=JSON.stringify({&quot;username&quot;:username,&quot;age&quot;:age});
+
+        xhr.send(msg);
+    });
+
+})();
+</code></pre><p>可以看到在接收到响应后，利用了来源于render_to_string的数据重置了包含待更新模板（studentList.html）的父元素（studentListWrapper）的innerHTML，这一步就完成了模板的更新</p>
+<p>完整的代码放在我的<a href="https://github.com/fishelren/my-demos/tree/master/ajax" target="_blank" rel="external">github</a>上</p>
 
       
     </div>
@@ -410,7 +476,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/django/" rel="tag"># django</a>
           
         </div>
       
@@ -423,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/17/浏览器用户代理检测的一些变化/" rel="next" title="浏览器用户代理检测的一些变化">
-                <i class="fa fa-chevron-left"></i> 浏览器用户代理检测的一些变化
+              <a href="/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/" rel="next" title="ubuntu下mysql存储中文报错（Error 1366）的解决方法">
+                <i class="fa fa-chevron-left"></i> ubuntu下mysql存储中文报错（Error 1366）的解决方法
               </a>
             
           </div>
@@ -432,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/28/JavaScript中的变量提升/" rel="prev" title="JavaScript中的变量提升">
-                JavaScript中的变量提升 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,8 +546,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -567,6 +638,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#index-html"><span class="nav-number">1.</span> <span class="nav-text">index.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#studentForm-html"><span class="nav-number">2.</span> <span class="nav-text">studentForm.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#studentList-html"><span class="nav-number">3.</span> <span class="nav-text">studentList.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#views-py中负责处理前端发来请求的代码如下"><span class="nav-number">4.</span> <span class="nav-text">views.py中负责处理前端发来请求的代码如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JavaScript代码"><span class="nav-number">5.</span> <span class="nav-text">JavaScript代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -702,7 +789,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 88741, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/04/19/关于CSS3 3D transform/"});
+		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/07/27/Django结合AJAX更新模板/"});
 		
 
 		(function() {
