@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
+<meta name="description" content="最近看了一篇《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于闭包的一个问题">
 <meta property="og:url" content="http://fishelren.me/2017/04/15/关于闭包的一个问题/index.html">
 <meta property="og:site_name" content="飞翔的博客">
-<meta property="og:description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
-<meta property="og:updated_time" content="2017-07-01T13:18:18.242Z">
+<meta property="og:description" content="最近看了一篇《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
+<meta property="og:updated_time" content="2017-08-03T00:20:42.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于闭包的一个问题">
-<meta name="twitter:description" content="最近阅读了梁少峰老师的《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
+<meta name="twitter:description" content="最近看了一篇《vue早期源码学习系列之一：如何监听一个对象的变化》，有一处不明白的地方">
 
 
 
@@ -345,7 +345,7 @@
       
 
       
-        <p>最近阅读了梁少峰老师的《<a href="https://github.com/youngwind/blog/issues/84" target="_blank" rel="external">vue早期源码学习系列之一：如何监听一个对象的变化</a>》，有一处不明白的地方</p>
+        <p>最近看了一篇《<a href="https://github.com/youngwind/blog/issues/84" target="_blank" rel="external">vue早期源码学习系列之一：如何监听一个对象的变化</a>》，有一处不明白的地方</p>
 <a id="more"></a>
 <pre><code>function Observer(data){ //创建观察者对象
     this.data=data;
@@ -383,7 +383,7 @@ Observer.prototype.monitor=function(key,value){ //通过对属性设置get和set
     });
 }
 </code></pre><p>set函数中value只是个形参，它是怎么影响属性值的变化的呢？</p>
-<p>经梁少峰老师指点并阅读了阮一峰老师的《<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure）</a>》，总算把这个问题弄明白了！</p>
+<p>感谢作者的回复并阅读了阮一峰老师的《<a href="http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html" target="_blank" rel="external">学习Javascript闭包（Closure）</a>》，总算把这个问题弄明白了！</p>
 <p>闭包的作用主要有两点：（1）可以访问函数内部的变量；（2）将函数内部的变量始终保存在内存中。这个问题的关键在于理解第二点，setter和getter引用monitor中的局部变量value，形成闭包，将局部变量value保存在内存中，且每次调用monitor都会产生不同的依赖，保存不同的value到内存中，同一组getter和setter对内存中对应的value进行操作。因此，以上代码中对内存中的value赋新值后，getter返回的也是这个新值，的却是起到了改变属性值的效果。</p>
 <hr>
 <p>额外的一些笔记：</p>
