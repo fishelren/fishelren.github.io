@@ -1,0 +1,1248 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="baidu-site-verification" content="mvitarqqkc" />
+<meta name="google-site-verification" content="c1Hkfj46O08dOucried69Os-A7_LF6QlRYBCFimGvao" />
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="django," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="主要文件及其作用urls.py链接入口（路由），关联对应views.py中的函数
+views.py处理用户发出的请求，为用户显示页面内容
+models.py模型文件，数据库操作相关，一般每一个模型对应数据库中的一张表
+forms.py表单相关，在其中创建表单类
+admin.py后台文件，在其中注册模型后，可以通过django admin统一管理
+settings.pyDjango的配置文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django要点总结">
+<meta property="og:url" content="http://fishelren.me/2017/08/04/Django要点总结/index.html">
+<meta property="og:site_name" content="飞翔的博客">
+<meta property="og:description" content="主要文件及其作用urls.py链接入口（路由），关联对应views.py中的函数
+views.py处理用户发出的请求，为用户显示页面内容
+models.py模型文件，数据库操作相关，一般每一个模型对应数据库中的一张表
+forms.py表单相关，在其中创建表单类
+admin.py后台文件，在其中注册模型后，可以通过django admin统一管理
+settings.pyDjango的配置文件">
+<meta property="og:updated_time" content="2017-08-04T11:30:36.024Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django要点总结">
+<meta name="twitter:description" content="主要文件及其作用urls.py链接入口（路由），关联对应views.py中的函数
+views.py处理用户发出的请求，为用户显示页面内容
+models.py模型文件，数据库操作相关，一般每一个模型对应数据库中的一张表
+forms.py表单相关，在其中创建表单类
+admin.py后台文件，在其中注册模型后，可以通过django admin统一管理
+settings.pyDjango的配置文件">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://fishelren.me/2017/08/04/Django要点总结/"/>
+
+
+
+
+
+  <title> Django要点总结 | 飞翔的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">飞翔的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/08/04/Django要点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="飞翔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飞翔的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Django要点总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-04T18:58:11+08:00">
+                2017-08-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/04/Django要点总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/08/04/Django要点总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="主要文件及其作用"><a href="#主要文件及其作用" class="headerlink" title="主要文件及其作用"></a>主要文件及其作用</h2><h3 id="urls-py"><a href="#urls-py" class="headerlink" title="urls.py"></a>urls.py</h3><p>链接入口（路由），关联对应views.py中的函数</p>
+<h3 id="views-py"><a href="#views-py" class="headerlink" title="views.py"></a>views.py</h3><p>处理用户发出的请求，为用户显示页面内容</p>
+<h3 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h3><p>模型文件，数据库操作相关，一般每一个模型对应数据库中的一张表</p>
+<h3 id="forms-py"><a href="#forms-py" class="headerlink" title="forms.py"></a>forms.py</h3><p>表单相关，在其中创建表单类</p>
+<h3 id="admin-py"><a href="#admin-py" class="headerlink" title="admin.py"></a>admin.py</h3><p>后台文件，在其中注册模型后，可以通过django admin统一管理</p>
+<h3 id="settings-py"><a href="#settings-py" class="headerlink" title="settings.py"></a>settings.py</h3><p>Django的配置文件</p>
+<a id="more"></a>
+<h2 id="Django基本命令"><a href="#Django基本命令" class="headerlink" title="Django基本命令"></a>Django基本命令</h2><p>django-admin.py startproject HelloWorld  创建项目</p>
+<pre><code>ps:在windows下写作：django-admin startproject HelloWorld
+</code></pre><p>django-admin.py startapp Hello  创建应用（第一种方法）</p>
+<p>python3 manage.py startapp Hello  创建应用（第二种方法，用的更多）</p>
+<pre><code>ps:进入到项目目录下创建的应用才会属于对应的项目
+ps:python3有时也会是python，根据不同机器上命令的名称而定
+</code></pre><p>python3 manage.py runserver 8080  启动开发服务器，这里监听端口8080</p>
+<p>python3 manage.py makemigrations  在migrations文件夹下记录对models.py的改动（创建迁移文件，即SQL语句）</p>
+<p>python3 manage.py migrate  将对models.py的改动作用到数据库文件（同步数据库）</p>
+<p>python3 manage.py shell  进入django的交互式shell，它提供了django的环境</p>
+<h2 id="视图与链接路由"><a href="#视图与链接路由" class="headerlink" title="视图与链接路由"></a>视图与链接路由</h2><p>1）将新创建的应用加入settings.py中，使项目能够找到应用中的模板文件</p>
+<pre><code>INSTALLED_APPS = [
+    &apos;django.contrib.admin&apos;,
+    &apos;django.contrib.auth&apos;,
+    &apos;django.contrib.contenttypes&apos;,
+    &apos;django.contrib.sessions&apos;,
+    &apos;django.contrib.messages&apos;,
+    &apos;django.contrib.staticfiles&apos;,
+    &apos;demo&apos;,
+]
+</code></pre><p>2）在views.py中定义视图函数，views.py里面的代码就是一个一个的函数逻辑</p>
+<pre><code>from django.shortcuts import render
+from django.http import HttpResponse
+
+def sayHello(request):
+    return HttpResponse(&quot;Hello World&quot;)
+
+def add(request):
+    a=request.GET.get(&quot;a&quot;,0)
+    b=request.GET.get(&quot;b&quot;,0)
+    c=int(a)+int(b)
+    return HttpResponse(str(c))
+</code></pre><p>3）在urls.py中定义视图相关的路由配置</p>
+<pre><code>from django.conf.urls import url
+from django.contrib import admin
+from demo import views as demo_views
+urlpatterns = [
+    url(r&apos;^$&apos;,demo_views.sayHello),
+    url(r&apos;^add$&apos;,demo_views.add),
+    url(r&apos;^admin/&apos;, admin.site.urls),
+]
+</code></pre><p>输入 <a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a> 就可以调用views.py中定义的sayHello函数，并在网页上看到“hello world”</p>
+<p>输入 <a href="http://localhost:8080/add?a=3&amp;b=5" target="_blank" rel="external">http://localhost:8080/add?a=3&amp;b=5</a> 就可以调用views.py中定义的add函数，并在页面上输出结果8</p>
+<p>ps：一个项目有一个settings.py，一个urls.py，但每个应用有各自的views.py</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>1）在应用下创建“templates”文件夹，Django默认将模板放在应用的templates文件夹中;本例采用默认设置。</p>
+<p>也可以将templates文件夹放在项目<strong>其它位置</strong>，比如将它放在项目根目录下。但这么做需要在settings.py中做如下设置：</p>
+<pre><code>TEMPLATES = [
+    {
+        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,
+        &apos;DIRS&apos;: [os.path.join(BASE_DIR,&quot;templates&quot;),],  #改变模板文件夹位置
+        &apos;APP_DIRS&apos;: True,
+        &apos;OPTIONS&apos;: {
+            &apos;context_processors&apos;: [
+                &apos;django.template.context_processors.debug&apos;,
+                &apos;django.template.context_processors.request&apos;,
+                &apos;django.contrib.auth.context_processors.auth&apos;,
+                &apos;django.contrib.messages.context_processors.messages&apos;,
+            ],
+        },
+    },
+]
+</code></pre><p>ps：如果将templates文件夹放在应用目录下，最好在templates文件夹下再创建一层以应用名命名的文件夹，以“应用名/模板名”的方式引用模板，这样可以避免多个应用的模板同名的情况。如demo1/base.html，demo2/base.html</p>
+<p>2）在views.py中定义函数，将请求与模板联系起来</p>
+<pre><code>def msg(request):
+    return render(request,&quot;demo/message.html&quot;)
+</code></pre><p>ps：render函数用于渲染模板</p>
+<p>3）在urls.py中添加模板相关的路由</p>
+<pre><code>from django.conf.urls import url
+from django.contrib import admin
+from demo import views as demo_views
+urlpatterns = [
+    url(r&apos;^$&apos;,demo_views.sayHello),
+    url(r&apos;^add$&apos;,demo_views.add),
+    url(r&apos;^msg/&apos;,demo_views.msg), # new
+    url(r&apos;^admin/&apos;, admin.site.urls),
+]
+</code></pre><hr>
+<p>html模板文件中输出一条语句</p>
+<pre><code>&lt;body&gt;
+    tomorrow is another day
+&lt;/body&gt;
+</code></pre><p>启动开发服务器后，输入 <a href="http://localhost:8080/msg/" target="_blank" rel="external">http://localhost:8080/msg/</a> 即可跳转到模板文件</p>
+<p>4）在html模板文件中直接引用JavaScript,CSS等资源会引用不到，解决方案如下：</p>
+<p>在settings.py的“STATIC_URL”下方补以如下代码：</p>
+<pre><code>STATIC_ROOT=os.path.join(BASE_DIR,&apos;templates/static&apos;).replace(&apos;\\&apos;,&apos;/&apos;)
+STATICFILES_DIRS=(
+    (&apos;css&apos;,os.path.join(STATIC_ROOT,&apos;css&apos;).replace(&apos;\\&apos;,&apos;/&apos;)),
+    (&apos;js&apos;,os.path.join(STATIC_ROOT,&apos;js&apos;).replace(&apos;\\&apos;,&apos;/&apos;)),
+    (&apos;images&apos;,os.path.join(STATIC_ROOT,&apos;images&apos;).replace(&apos;\\&apos;,&apos;/&apos;)),
+    (&apos;upload&apos;,os.path.join(STATIC_ROOT,&apos;upload&apos;).replace(&apos;\\&apos;,&apos;/&apos;)),
+)
+</code></pre><p>也就是要指定放置资源文件的文件夹，以上代码把存放资源的static文件夹放在了项目目录下的templates文件夹之下；也可以放在应用下的templates文件夹之下或者是其它地方，只要改变STATIC_ROOT的值即可。资源文件夹习惯叫做”static”</p>
+<hr>
+<p><strong>自定义模板</strong></p>
+<p>title.html</p>
+<pre><code>&lt;body&gt;
+    This is title!!!
+&lt;/body&gt;
+</code></pre><p>foot.html</p>
+<pre><code>&lt;body&gt;
+    This is foot~~~
+&lt;/body&gt;
+</code></pre><p>自定义模板文件 base.html</p>
+<pre><code>&lt;body&gt;
+    {% include "./title.html" %}&lt;br/&gt;
+    {% block content %}
+	    	this is content!!!
+	    {% endblock %}&lt;br/&gt;
+    {% include "./foot.html" %}
+&lt;/body&gt;
+</code></pre><p>可以在其它文件中直接使用模板（template1.html）</p>
+<pre><code>&lt;body&gt;
+    {% extends "./base.html" %}
+&lt;/body&gt;
+</code></pre><p>也可以重写模板base.html中”block content”中的内容（template2.html）</p>
+<pre><code>&lt;body&gt;
+    {% extends "./base.html" %}
+    {% block content %}
+	    	good good study,day day up
+	    {% endblock %}
+&lt;/body&gt;
+</code></pre><p>类似的可被替换的内容还有</p>
+<p>替换html的标题</p>
+<pre><code>&lt;title&gt;{% block title %}Default Title{% endblock %}
+
+替换CSS文件
+
+	{% block stylesheet %}{% endblock %}
+</code></pre><p>替换JavaScript文件</p>
+<pre><code>{% block javascript %}{% endblock %}
+</code></pre><hr>
+<p>在views.py中给render构造函数添加第三个参数（可选），表示添加到模板上下文的字典</p>
+<p>eg1:</p>
+<pre><code>def template3(request):
+    str1=&quot;这是第一个字符串&quot;
+    str2=&quot;这是第二个字符串&quot;
+    return render(request,&quot;demo/template3.html&quot;,{&quot;str1&quot;:str1,&quot;str2&quot;:str2})
+</code></pre><p>在模板或包含模板的文件中可以通过双大括号将字典中键值对中的值通过键名引入进来(template3.html)</p>
+<pre><code>&lt;body&gt;
+    {{str1}},{{str2}}
+&lt;/body&gt;
+</code></pre><p>eg2:</p>
+<pre><code>def template4(request):
+    myList=[&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
+    return render(request,&quot;demo/template4.html&quot;,{&quot;myList&quot;:myList})
+</code></pre><p>可以对模板中的数据做判断和循环等操作</p>
+<pre><code>&lt;body&gt;
+    {% for item in myList %}
+	    	{{item}}
+	    	{% if not forloop.last %}
+	    		,
+	    	{% endif %}
+		{% endfor %}
+&lt;/body&gt;
+</code></pre><hr>
+<p>循环中的常用参数</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">参数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">forloop.counter</td>
+<td style="text-align:left">索引从 1 开始算</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.counter0</td>
+<td style="text-align:left">索引从 0 开始算</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.revcounter</td>
+<td style="text-align:left">索引从最大长度到 1</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.revcounter0</td>
+<td style="text-align:left">索引从最大长度到 0</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.first</td>
+<td style="text-align:left">当遍历的元素为第一项时为真</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.last</td>
+<td style="text-align:left">当遍历的元素为最后一项时为真</td>
+</tr>
+<tr>
+<td style="text-align:center">forloop.parentloop</td>
+<td style="text-align:left">用在嵌套的 for 循环中，获取上一层 for 循环的 forloop</td>
+</tr>
+</tbody>
+</table>
+<h2 id="模型与数据库"><a href="#模型与数据库" class="headerlink" title="模型与数据库"></a>模型与数据库</h2><ul>
+<li><p>一般情况下，一个模型和一张数据表对应</p>
+</li>
+<li><p>模型的属性表示表中的字段</p>
+</li>
+<li><p>django模型都是django.db.models.Model的子类</p>
+</li>
+<li><p>objects属性是模型（model）最重要的属性，它是django.db.models.Manager接口，通过它可以执行数据库操作，objects属性通过模型类取得，而不是通过模型实例取得，可以通过objects获得QuerySet</p>
+</li>
+</ul>
+<p>这里以MySql数据库为例：</p>
+<p>1） 安装PyMySQL模块</p>
+<p>  python2.x使用MySQLdb；python3.x使用PyMySQL</p>
+<pre><code>sudo pip3 install PyMySQL
+</code></pre><p>  编辑项目的<strong>init</strong>.py文件，加上下列代码</p>
+<pre><code>import pymysql
+pymysql.install_as_MySQLdb()
+</code></pre><p>2）配置settings.py</p>
+<p>  django项目默认使用SQLite数据库，我们也可以根据需要使用其它数据库，这里我们使用较常用的mysql数据库</p>
+<pre><code>DATABASES = {
+    &apos;default&apos;: {
+        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,
+        &apos;NAME&apos;: &apos;djangoweb&apos;, # mysql数据库名称
+        &apos;USER&apos;: &apos;root&apos;,
+        &apos;PASSWORD&apos;: &apos;root&apos;,
+        &apos;HOST&apos;: &apos;localhost&apos;, # 数据库主机ip，留空（&apos;&apos;）默认为localhost
+        &apos;PORT&apos;: &apos;3306&apos;,
+    }
+}
+</code></pre><p>3）在models.py中创建模型</p>
+<pre><code>from django.db import models
+
+class Person(models.Model):
+    name=models.CharField(max_length=30)
+    age=models.IntegerField()
+
+    def __str__(self):  # python3用__str__，python2用__unicode__
+            return self.name
+</code></pre><p>ps：在django中最好在每个model中都包含一个<strong>str</strong>方法，用于返回模型类的字符串表示形式</p>
+<p>4）同步数据库</p>
+<p>  根据模型在数据库中创建表</p>
+<pre><code>python3 manage.py makemigrations
+python3 manage.py migrate
+</code></pre><p>ps：在数据库中创建的表名默认是”应用名_小写的模型类名”，例如这里是”demo_person”</p>
+<p>5）增删改查</p>
+<p>参考了<a href="http://blog.csdn.net/zcf1002797280/article/details/49559863" target="_blank" rel="external">Django 对数据库进行增删改查</a></p>
+<p>Django的Model API为我们提供了有用的函数，可以方便地进行增删改查，而不需要写SQL语句</p>
+<p>views.py中</p>
+<p>增：</p>
+<pre><code>...
+from hello.models import Person # hello是应用的名称，引入Person模型
+...
+def create(request):
+    # 第一种方式
+    # p=Person.objects.create(name=&quot;Jack&quot;,age=18)
+    # return HttpResponse(p.name+&quot;,&quot;+str(p.age))
+
+    # 第二种方式
+    # p=Person(name=&quot;Rose&quot;,age=16)
+    # p.save()
+    # return HttpResponse(p.name+&quot;,&quot;+str(p.age))
+
+    # 第三种方法
+    p1=Person.objects.get_or_create(name=&quot;Jack&quot;,age=22)
+    p2=Person.objects.get_or_create(name=&quot;Lisa&quot;,age=16)
+    str1=str(&quot;新建&quot; if p1[1]==True else &quot;取出&quot;)+&quot;:&quot;+p1[0].name+&quot;,&quot;+str(p1[0].age)
+    str2=str(&quot;新建&quot; if p2[1]==True else &quot;取出&quot;)+&quot;:&quot;+p2[0].name+&quot;,&quot;+str(p2[0].age)
+
+    # 返回一个元组:(取得或创建的对象,True或False)
+    # True表示新建；False表示已经存在
+    # 这种方式下，如果已经存在则只是取出，不会创建新的记录
+    return HttpResponse(str1+&quot;,&quot;+str2)
+    # 如果返回了多条已存在的记录就会报错
+</code></pre><p>删：</p>
+<pre><code>def delete(request):
+    # 删除name为Tom的记录
+    # p=Person.objects.get(name=&quot;Tom&quot;)
+    # r=p.delete()
+    # delete()返回一个元组，形式为(1, {&apos;weblog.Entry&apos;: 1})，
+    # 第一个元素表示被删除对象的个数，第二个元素表示每种类型对象被删除个数的字典
+    # return HttpResponse(&quot;删除&quot;+str(r[0])+&quot;条记录&quot;)
+
+    # 删除Person模型对应的表中所有记录
+    # r=Person.objects.all().delete()
+    # return HttpResponse(&quot;删除&quot;+str(r[0])+&quot;条记录&quot;)
+
+    # 删除年龄为18的所有记录
+    r=Person.objects.filter(age=18).delete()
+    return HttpResponse(&quot;删除&quot;+str(r[0])+&quot;条记录&quot;)
+</code></pre><p>改：</p>
+<pre><code>def update(request):
+    # 方法一
+    # p=Person.objects.get(name=&quot;Tom&quot;)
+    # p.age=39
+    # p.save()
+    # return HttpResponse(&quot;更新成功&quot;)
+
+    # 方法二
+    Person.objects.filter(name=&quot;Tom&quot;).update(age=93)
+    return HttpResponse(&quot;更新成功&quot;)
+</code></pre><p>查：</p>
+<pre><code>def research(request):
+    # 例1 查询所有姓名
+    # result=&quot;&quot;
+    # querySet=Person.objects.all() # objects.all()返回的是一个QuerySet
+    # for item in querySet:
+    #    result+=item.name+&quot; &quot;
+    # return HttpResponse(result)
+
+    # 例2
+    # result=&quot;&quot;
+    # querySet=Person.objects.all().values() # values() 将每个模型对象的属性以键值对的形式组成字典
+    # for item in querySet:
+    #    print(item)
+    #    result+=str(item)
+    # return HttpResponse(result)
+
+    # 例3
+    # p=Person.objects.get(name=&quot;Tom&quot;) # 如果get有超过一个的符合对象返回就会抛出MultipleObjectsReturned&gt;异常，没有对象返回会抛出DoesNotExist异常
+    # return HttpResponse(p.name+&quot;,&quot;+str(p.age))
+
+    # 例4
+    # result=&quot;&quot;
+    # querySet=Person.objects.filter(age=19)
+    # for item in querySet:
+    #    print(item.name+&quot;,&quot;+str(item.age))
+    #    result+=item.name+&quot;,&quot;+str(item.age)+&quot; &quot;
+    # return HttpResponse(result)
+
+    # 例5
+    # result=&quot;&quot;
+    # querySet=Person.objects.filter(name__contains=&quot;ry&quot;) # 大小写敏感的包含查询
+    # for item in querySet:
+    #    print(item.name+&quot;,&quot;+str(item.age))
+    #    result+=item.name+&quot;,&quot;+str(item.age)+&quot; &quot;
+    # return HttpResponse(result)
+
+    # 例6
+    # result=&quot;&quot;
+    # querySet=Person.objects.order_by(&quot;age&quot;) # 按年龄排序，默认数字为从小到大排序
+    # for item in querySet:
+    #    print(item.name+&quot;,&quot;+str(item.age))
+    #    result+=item.name+&quot;,&quot;+str(item.age)+&quot; &quot;
+    # return HttpResponse(result)
+
+    # 例7
+    # result=&quot;&quot;
+    # querySet=Person.objects.order_by(&quot;-age&quot;) # 按年龄逆向排序，这里的负号表示逆向
+    # for item in querySet:
+    #    print(item.name+&quot;,&quot;+str(item.age))
+    #    result+=item.name+&quot;,&quot;+str(item.age)+&quot; &quot;
+    # return HttpResponse(result)
+
+    # 例8 用切片取QuerySet的子集
+    result=&quot;&quot;
+    querySet=Person.objects.order_by(&quot;-age&quot;) # 按年龄逆向排序，这里的负号表示逆向
+    for item in querySet[:3]: # 取出年龄最大的三个人的信息
+        print(item.name+&quot;,&quot;+str(item.age))
+        result+=item.name+&quot;,&quot;+str(item.age)+&quot; &quot;
+    return HttpResponse(result)
+</code></pre><p>ps：QuerySet其实就是一个模型对象的类列表对象</p>
+<h2 id="django和表单"><a href="#django和表单" class="headerlink" title="django和表单"></a>django和表单</h2><p>web开发中一般用表单向服务器提交数据，django中可以用纯html表单，也可以使用django提供的表单组件</p>
+<h3 id="html表单"><a href="#html表单" class="headerlink" title="html表单"></a>html表单</h3><p>表单位于form1.html下</p>
+<pre><code>&lt;form action=&quot;/info/&quot; method=&quot;post&quot;&gt;
+    {% csrf_token %} &lt;!--post方式提交需要加，get不需要--&gt;
+    UserName:&lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+    Age:&lt;input type=&quot;text&quot; name=&quot;age&quot;/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p>views.py中</p>
+<pre><code>def getInfo(request):
+    if request.method==&quot;GET&quot;:
+        username=request.GET.get(&quot;username&quot;,None)
+        age=request.GET.get(&quot;age&quot;,None)
+    elif request.method==&quot;POST&quot;:
+        username=request.POST.get(&quot;username&quot;,None)
+        age=request.POST.get(&quot;age&quot;,None)
+    return HttpResponse(username+&quot;,&quot;+str(age))
+
+def form1(request):
+    return render(request,&quot;demo/form1.html&quot;)
+</code></pre><p>urls.py中</p>
+<pre><code>urlpatterns = [
+    url(r&apos;^$&apos;,demo_views.sayHello),
+    url(r&apos;^add$&apos;,demo_views.add),
+    url(r&apos;^msg/&apos;,demo_views.msg),
+    url(r&apos;^template1/&apos;,demo_views.template1),
+    url(r&apos;^template2/&apos;,demo_views.template2),
+    url(r&apos;^template3/&apos;,demo_views.template3),
+    url(r&apos;^template4/&apos;,demo_views.template4),
+    url(r&apos;^create/&apos;,demo_views.create),
+    url(r&apos;^delete/&apos;,demo_views.delete),
+    url(r&apos;^update/&apos;,demo_views.update),
+    url(r&apos;^research/&apos;,demo_views.research),
+    url(r&apos;^form1/&apos;,demo_views.form1), # new
+    url(r&apos;^info/&apos;,demo_views.getInfo), # new
+    url(r&apos;^admin/&apos;, admin.site.urls),]
+</code></pre><h3 id="django表单"><a href="#django表单" class="headerlink" title="django表单"></a>django表单</h3><p>1）本例在应用中新建一个python文件（此处为user.py），用于存放表单类，表单类描述了表单中应有的字段标签</p>
+<pre><code>from django import forms
+class User(forms.Form): # 所有的django表单都直接或间接继承django.forms.Form类
+    username=forms.CharField(min_length=3,max_length=10)
+    age=forms.IntegerField()
+</code></pre><p>2）views.py中定义表单处理函数</p>
+<pre><code>...
+from demo.user import User # 引入表单类
+...
+def index(request):
+if request.method == &quot;POST&quot; or &quot;GET&quot;: # 处理提交内容
+    if request.method==&quot;POST&quot;:
+        userForm = User(request.POST)
+    else:
+        userForm = User(request.GET)
+    if userForm.is_valid(): # 表单验证
+        # 从cleaned_data属性取出的值都是经过转换，成为标准python数据类型的值
+        username = userForm.cleaned_data[&quot;username&quot;]
+        age = userForm.cleaned_data[&quot;age&quot;]
+        return HttpResponse(username + &quot;,&quot; + str(age))
+else: # 初次载入页面
+    userForm=User() # 空的表单对象，用于前端自动生成表单元素标签
+return render(request, &quot;demo/index.html&quot;, {&quot;form&quot;:userForm})
+</code></pre><p>3）表单html代码</p>
+<pre><code>&lt;form action=&quot;/index/&quot; method=&quot;post&quot;&gt;
+    {% csrf_token %} &lt;!--post方式提交需要加，get不需要--&gt;
+    UserName:{{ form.username }} &lt;!--根据后台传来的表单对象自动创建表单控件--&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+    Age:{{ form.age }}
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;
+    &lt;button type=&quot;submit&quot;&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+</code></pre><p>4） urls.py中的路由</p>
+<pre><code>urlpatterns = [
+    url(r&apos;^$&apos;,demo_views.sayHello),
+    url(r&apos;^add$&apos;,demo_views.add),
+    url(r&apos;^msg/&apos;,demo_views.msg),
+    url(r&apos;^template1/&apos;,demo_views.template1),
+    url(r&apos;^template2/&apos;,demo_views.template2),
+    url(r&apos;^template3/&apos;,demo_views.template3),
+    url(r&apos;^template4/&apos;,demo_views.template4),
+    url(r&apos;^create/&apos;,demo_views.create),
+    url(r&apos;^delete/&apos;,demo_views.delete),
+    url(r&apos;^update/&apos;,demo_views.update),
+    url(r&apos;^research/&apos;,demo_views.research),
+    url(r&apos;^form1/&apos;,demo_views.form1),
+    url(r&apos;^info/&apos;,demo_views.getInfo),
+    url(r&apos;^index/&apos;,demo_views.index), # new
+    url(r&apos;^admin/&apos;, admin.site.urls),]
+</code></pre><h2 id="Django-admin"><a href="#Django-admin" class="headerlink" title="Django admin"></a>Django admin</h2><p>参考了<a href="https://read.douban.com/ebook/8981906/?type=publish" target="_blank" rel="external">Django之歌：简易博客搭建教程</a></p>
+<p>django项目默认带有后台管理功能</p>
+<p>在settings.py中可以看到</p>
+<pre><code>INSTALLED_APPS = [
+    &apos;django.contrib.admin&apos;, # 后台管理功能
+    &apos;django.contrib.auth&apos;,
+    &apos;django.contrib.contenttypes&apos;,
+    &apos;django.contrib.sessions&apos;,
+    &apos;django.contrib.messages&apos;,
+    &apos;django.contrib.staticfiles&apos;,
+    &apos;demo&apos;,
+]
+</code></pre><p>同时，也设置好了进入网站后台的url，在urls.py中</p>
+<pre><code>urlpatterns = [
+        ...
+    url(r&apos;^admin/&apos;, admin.site.urls), # 网站后台url
+]
+</code></pre><p>使用如下语句创建超级用户</p>
+<pre><code>python3 manage.py createsuperuser
+</code></pre><p>ps: 每个项目都有自己的一组超级用户</p>
+<p>启动开发服务器后，地址栏输入 <a href="http://localhost:8080/admin" target="_blank" rel="external">http://localhost:8080/admin</a> 即可跳转到后台管理界面，输入创建好的超级用户信息即可登录进去</p>
+<p><strong>用第三方插件美化登录界面</strong></p>
+<p>插件名称为“django-admin-bootstrap”</p>
+<ol>
+<li><p>安装</p>
+<pre><code>sudo pip3 install bootstrap-admin
+</code></pre></li>
+<li><p>配置</p>
+<p> 在settings.py中</p>
+<pre><code>INSTALLED_APPS = [
+    &apos;bootstrap_admin&apos;, # 要放在 &quot;&apos;django.contrib.admin&apos;,&quot;的前面
+    &apos;django.contrib.admin&apos;,
+    &apos;django.contrib.auth&apos;,
+    &apos;django.contrib.contenttypes&apos;,
+    &apos;django.contrib.sessions&apos;,
+    &apos;django.contrib.messages&apos;,
+    &apos;django.contrib.staticfiles&apos;,
+    &apos;demo&apos;,
+]
+</code></pre></li>
+</ol>
+<p>不过为什么我觉得原生的界面更好看呢 = =！哈哈～</p>
+<p>那么问题来了，django admin<strong>如何使用</strong>呢？</p>
+<p>将模型注册给admin</p>
+<p>在每个应用（app）的admin.py中，加入这个应用下要注册到django admin的模型</p>
+<pre><code>from django.contrib import admin
+from demo.models import Person # 导入模型
+# Register your models here.
+admin.site.register(Person) # 注册模型，可以以数组的方式同时注册多个
+</code></pre><p>这样就可以在django admin中管理这个模型了，可以在admin中通过可视化的方式对模型对应的数据表记录进行增删改查等操作。（这只是最基本的admin用法，还有很多自定义的功能这里就不介绍了，可以看看<a href="http://www.runoob.com/django/django-admin-manage-tool.html" target="_blank" rel="external">Django Admin 管理工具</a>）</p>
+<hr>
+<p>本文相关代码放在<a href="https://github.com/fishelren/my-demos/tree/master/django-demos/KeyPointsSummary" target="_blank" rel="external">我的github</a>上</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/django/" rel="tag"># django</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/27/Django结合AJAX更新模板/" rel="next" title="Django结合AJAX更新模板">
+                <i class="fa fa-chevron-left"></i> Django结合AJAX更新模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="飞翔" />
+          <p class="site-author-name" itemprop="name">飞翔</p>
+           
+              <p class="site-description motion-element" itemprop="description">在这里记录我的技术成长</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/1761026172/profile?topnav=1&wvr=6" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/fishelren" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/ren-fei-xiang-17/activities" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要文件及其作用"><span class="nav-number">1.</span> <span class="nav-text">主要文件及其作用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#urls-py"><span class="nav-number">1.1.</span> <span class="nav-text">urls.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#views-py"><span class="nav-number">1.2.</span> <span class="nav-text">views.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#models-py"><span class="nav-number">1.3.</span> <span class="nav-text">models.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#forms-py"><span class="nav-number">1.4.</span> <span class="nav-text">forms.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#admin-py"><span class="nav-number">1.5.</span> <span class="nav-text">admin.py</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#settings-py"><span class="nav-number">1.6.</span> <span class="nav-text">settings.py</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django基本命令"><span class="nav-number">2.</span> <span class="nav-text">Django基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视图与链接路由"><span class="nav-number">3.</span> <span class="nav-text">视图与链接路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">4.</span> <span class="nav-text">模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型与数据库"><span class="nav-number">5.</span> <span class="nav-text">模型与数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#django和表单"><span class="nav-number">6.</span> <span class="nav-text">django和表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html表单"><span class="nav-number">6.1.</span> <span class="nav-text">html表单</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#django表单"><span class="nav-number">6.2.</span> <span class="nav-text">django表单</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Django-admin"><span class="nav-number">7.</span> <span class="nav-text">Django admin</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">飞翔</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+		<script type="text/javascript">
+		_hcwp = window._hcwp || [];
+
+		_hcwp.push({widget:"Bloggerstream", widget_id: 88741, selector:".hc-comment-count", label: "{\%COUNT%\}" });
+
+		
+		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/08/04/Django要点总结/"});
+		
+
+		(function() {
+		if("HC_LOAD_INIT" in window)return;
+		HC_LOAD_INIT = true;
+		var lang = (navigator.language || navigator.systemLanguage || navigator.userLanguage || "en").substr(0, 2).toLowerCase();
+		var hcc = document.createElement("script"); hcc.type = "text/javascript"; hcc.async = true;
+		hcc.src = ("https:" == document.location.protocol ? "https" : "http")+"://w.hypercomments.com/widget/hc/88741/"+lang+"/widget.js";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hcc, s.nextSibling);
+		})();
+		</script>
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
