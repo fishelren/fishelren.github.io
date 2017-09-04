@@ -73,7 +73,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -89,15 +89,16 @@
 
 
 
-<meta name="description" content="在这里记录我的技术成长">
-<meta property="og:type" content="website">
-<meta property="og:title" content="飞翔的博客">
-<meta property="og:url" content="http://fishelren.me/archives/index.html">
+<meta name="description" content="普通匹配的lastIndex属性在不人为设置的情况下始终为0，即每次都从目标字符串索引0的位置开始匹配，找到第一个匹配项后停止；人为改变普通匹配的lastIndex属性，即使lastIndex不再为0，仍然从目标字符串索引0的位置开始匹配。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较">
+<meta property="og:url" content="http://fishelren.me/2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/index.html">
 <meta property="og:site_name" content="飞翔的博客">
-<meta property="og:description" content="在这里记录我的技术成长">
+<meta property="og:description" content="普通匹配的lastIndex属性在不人为设置的情况下始终为0，即每次都从目标字符串索引0的位置开始匹配，找到第一个匹配项后停止；人为改变普通匹配的lastIndex属性，即使lastIndex不再为0，仍然从目标字符串索引0的位置开始匹配。">
+<meta property="og:updated_time" content="2017-09-04T23:26:16.393Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="飞翔的博客">
-<meta name="twitter:description" content="在这里记录我的技术成长">
+<meta name="twitter:title" content="JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较">
+<meta name="twitter:description" content="普通匹配的lastIndex属性在不人为设置的情况下始终为0，即每次都从目标字符串索引0的位置开始匹配，找到第一个匹配项后停止；人为改变普通匹配的lastIndex属性，即使lastIndex不再为0，仍然从目标字符串索引0的位置开始匹配。">
 
 
 
@@ -125,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://fishelren.me/archives/"/>
+  <link rel="canonical" href="http://fishelren.me/2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/"/>
 
 
 
 
 
-  <title> 归档 | 飞翔的博客 </title>
+  <title> JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较 | 飞翔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -156,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -250,403 +251,217 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 11 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://fishelren.me/2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="飞翔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="飞翔的博客">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-05T15:25:46+08:00">
+                2017-09-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p>普通匹配的lastIndex属性在不人为设置的情况下始终为0，即每次都从目标字符串索引0的位置开始匹配，找到第一个匹配项后停止；人为改变普通匹配的lastIndex属性，即使lastIndex不再为0，仍然从目标字符串索引0的位置开始匹配。</p>
+<a id="more"></a>
+<pre><code>let text=&quot;hello1 hello2 hello3&quot;,
+    normalPattern=/hello\d\s?/,
+    normalResult=normalPattern.exec(text);
+
+console.log(normalPattern.lastIndex); //0
+console.log(normalResult[0]); //&apos;hello1 &apos;
+
+normalResult=normalPattern.exec(text);
+console.log(normalPattern.lastIndex); //0
+console.log(normalResult[0]); //&apos;hello1 &apos;
+
+normalPattern.lastIndex=7;
+console.log(normalPattern.lastIndex); //7
+
+normalResult=normalPattern.exec(text);
+console.log(normalResult[0]); //&apos;hello1 &apos;
+</code></pre><p>全局匹配（g）和粘滞匹配（y）初始时lastIndex属性值为0，即从目标字符串索引0的位置处开始匹配，每执行一次匹配后lastIndex变为上次匹配项之后的那个索引</p>
+<pre><code>let text=&quot;hello1 hello2 hello3&quot;,
+    globalPattern=/hello\d\s?/g,
+    stickyPattern=/hello\d\s?/y;
+
+console.log(globalPattern.lastIndex); //0
+console.log(stickyPattern.lastIndex); //0
+
+let globalResult=globalPattern.exec(text);
+let stickyResult=stickyPattern.exec(text);
+
+console.log(globalResult[0]); //&apos;hello1 &apos;
+console.log(stickyResult[0]); //&apos;hello1 &apos;
+
+console.log(globalPattern.lastIndex); //7
+console.log(stickyPattern.lastIndex); //7
+</code></pre><p>粘滞匹配如果在lastIndex处找不到匹配项则返回null，不会继续往后找；全局匹配在lastIndex处找不到匹配项会继续往后找</p>
+<pre><code>let text=&quot;hello1 hello2 hello3&quot;,
+    globalPattern=/hello\d\s?/g,
+    stickyPattern=/hello\d\s?/y;
+
+globalPattern.lastIndex=1;
+stickyPattern.lastIndex=1;
+
+console.log(globalPattern.lastIndex); //1
+console.log(stickyPattern.lastIndex); //1
+
+let globalResult=globalPattern.exec(text);
+let stickyResult=stickyPattern.exec(text);
+
+console.log(globalResult[0]); //&apos;hello2 &apos;
+console.log(stickyResult===null); //true
+</code></pre>
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/27/在Django中使用JavaScript代替模板接收并处理数据/" rel="next" title="在Django中使用JavaScript代替模板接收并处理数据">
+                <i class="fa fa-chevron-left"></i> 在Django中使用JavaScript代替模板接收并处理数据
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/" itemprop="url">
-              
-                <span itemprop="name">JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-09-05T15:25:46+08:00"
-              content="2017-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/27/在Django中使用JavaScript代替模板接收并处理数据/" itemprop="url">
-              
-                <span itemprop="name">在Django中使用JavaScript代替模板接收并处理数据</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-27T14:28:11+08:00"
-              content="2017-08-27" >
-          08-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/08/04/Django要点总结/" itemprop="url">
-              
-                <span itemprop="name">Django要点总结</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-04T18:58:11+08:00"
-              content="2017-08-04" >
-          08-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/27/Django结合AJAX更新模板/" itemprop="url">
-              
-                <span itemprop="name">Django结合AJAX更新模板</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-27T00:13:32+08:00"
-              content="2017-07-27" >
-          07-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/07/17/ubuntu下mysql存储中文报错（ERROR 1366 ）的问题/" itemprop="url">
-              
-                <span itemprop="name">ubuntu下mysql存储中文报错（Error 1366）的解决方法</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-07-17T18:04:12+08:00"
-              content="2017-07-17" >
-          07-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/05/04/offsetLeft和offsetTop/" itemprop="url">
-              
-                <span itemprop="name">offsetLeft和offsetTop</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-05-04T15:22:20+08:00"
-              content="2017-05-04" >
-          05-04
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/28/JavaScript中的变量提升/" itemprop="url">
-              
-                <span itemprop="name">JavaScript中的变量提升</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-28T21:19:05+08:00"
-              content="2017-04-28" >
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/19/关于CSS3 3D transform/" itemprop="url">
-              
-                <span itemprop="name">关于CSS3 3D transform的一些笔记</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-19T21:46:00+08:00"
-              content="2017-04-19" >
-          04-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/17/浏览器用户代理检测的一些变化/" itemprop="url">
-              
-                <span itemprop="name">浏览器用户代理检测的一些变化</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-17T21:46:00+08:00"
-              content="2017-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/15/关于闭包的一个问题/" itemprop="url">
-              
-                <span itemprop="name">关于闭包的一个问题</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-15T21:46:00+08:00"
-              content="2017-04-15" >
-          04-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -654,6 +469,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -863,11 +684,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   
@@ -892,6 +711,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 88741, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 88741, xid: "2017/09/05/JavaScript正则表达式中普通匹配_全局匹配_粘滞匹配的比较/"});
 		
 
 		(function() {
